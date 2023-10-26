@@ -1,6 +1,7 @@
 import { Application, Request, Response } from "express";
 import { DeliveryEmployee } from "../model/deliveryEmployee";
 import { DeliveryEmployeeRequest } from "../model/deliveryEmployeeRequest";
+import { DeliveryEmployeeUpdateRequest } from "../model/deliveryEmployeeUpdateRequest";
 const deliveryEmployeeService = require('../service/deliveryEmployeeService');
 
 
@@ -61,5 +62,21 @@ module.exports = function(app: Application) {
         }
 
     })
+    // get delivery employee update page
+    app.get('/updatedeliveryemployee/:id', async(req: Request, res: Response) =>{
 
+        // create empty array to add returned data
+        let data = DeliveryEmployee;
+
+        try{
+            // call to service class to get del employee by id
+            data = await deliveryEmployeeService.getDeliveryEmployeeById(req.params.id);
+        } catch(e){
+            res.locals.errormessage = e.message;
+            return res.render('update-delivery-employee', req.body);
+        }
+
+        // render view-order page, passing in data returned from api
+        return res.render('update-delivery-employee', {deliveryEmployee: data})
+    })
 }
