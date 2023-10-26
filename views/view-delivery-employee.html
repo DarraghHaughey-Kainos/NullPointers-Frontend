@@ -39,6 +39,15 @@
                     </tr>
                 </tbody>
             </table>
+                <form method="post" action="/deletedeliveryemployee">
+
+                    <input name="deleteDeliveryEmployee" type="hidden" value="{{ employee.id }}">
+                
+                    <button class="btn btn-danger" type="submit">Delete</button>
+
+                </form>
+
+           
             {% else %}
                 Could not find employee.
             {% endif %}

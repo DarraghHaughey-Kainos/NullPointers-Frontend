@@ -62,4 +62,24 @@ module.exports = function(app: Application) {
 
     })
 
+    app.post('/deletedeliveryemployee/', async (req: Request, res: Response) => {
+        
+   
+        try {
+
+            await deliveryEmployeeService.deleteDeliveryEmployee(req.body.deleteDeliveryEmployee);
+
+            res.redirect('/deliveryemployees/');
+
+        }  catch(e) {
+
+            console.error(e);
+            res.locals.errormessage = e.message;
+            res.render('list-delivery-employees');
+            
+        }
+
+
+    })
+
 }
