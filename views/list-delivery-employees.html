@@ -23,13 +23,21 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Employee ID</th>            
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">NI Number</th>            
                     </tr>
                 </thead>
                 <tbody>
                 {% for employee in employees %}
                     <tr>
                         <td>{{ employee.id }}</td>
+                        <td>{{ employee.firstName }}</td>
+                        <td>{{ employee.lastName }}</td>
+                        <td>{{ employee.salary }}</td>
+                        <td>{{ employee.niNumber }}</td>
                     </tr>
                 
                     {% endfor %}
