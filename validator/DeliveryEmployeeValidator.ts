@@ -2,8 +2,8 @@ import { DeliveryEmployeeRequest } from "../model/deliveryEmployeeRequest";
 
 export function validateEmployee(deliveryEmployeeRequest: DeliveryEmployeeRequest): string {
 
-    if(deliveryEmployeeRequest.salary < 0){
-        return "Salary cannot be less than zero";
+    if(deliveryEmployeeRequest.salary <= 0){
+        return "Salary cannot be less than or equal to zero";
     }
 
     if(deliveryEmployeeRequest.bankAccountNumber.length != 8){
@@ -14,6 +14,6 @@ export function validateEmployee(deliveryEmployeeRequest: DeliveryEmployeeReques
         return "National insurance number length must be 9";
     }
 
-    return ""
+    return null
 
 }

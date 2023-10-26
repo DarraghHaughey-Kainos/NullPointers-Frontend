@@ -40,8 +40,8 @@ module.exports = function(app: Application) {
 
         } catch(e){
 
-            console.error(e)
-
+            console.error(e);
+            res.locals.errormessage = e.message;
             res.render('create-new-delivery-employee', req.body);
 
         }
