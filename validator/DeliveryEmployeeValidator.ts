@@ -14,6 +14,6 @@ export function validateEmployee(deliveryEmployeeRequest: DeliveryEmployeeReques
         return "National insurance number length must be 9";
     }
 
-    return null
+    return null as any;
 
 }
