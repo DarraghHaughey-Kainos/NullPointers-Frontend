@@ -11,42 +11,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12"> 
-                    <h1>Delivery Employees</h1>
+                    <h1>Delivery Employee Details</h1>
                 </div>                
             </div>
         </div>
     </header>
     <main class="container mt-4">
         <section id="employees" class="mt-4">
-            <h2>Employee List</h2>
-            {% if employees and employees.length > 0 %}
+            <h2>Employee Details</h2>
+            {% if employee %}
             <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Employee ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Salary</th>
-                        <th scope="col">NI Number</th>            
-                    </tr>
-                </thead>
                 <tbody>
-                {% for employee in employees %}
                     <tr>
+                        <td>Employee ID:</td>
                         <td>{{ employee.id }}</td>
-                        <td>{{ employee.firstName }}</td>
-                        <td>{{ employee.lastName }}</td>
-                        <td>{{ employee.salary }}</td>
-                        <td>{{ employee.niNumber }}</td>
-                        <td><a href="/deliveryemployees/{{ employee.id }}" class="btn btn-primary">View Details</a></td>
                     </tr>
-                
-                    {% endfor %}
-
+                    <tr>
+                        <td>First Name:</td>
+                        <td>{{ employee.firstName }}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name: </td>
+                        <td>{{ employee.lastName }}</td>
+                    </tr>
+                    <tr>
+                        <td>Salary: </td>
+                        <td>{{ employee.salary }}</td>
+                    </tr>
+                        <td>NI Number: </td>
+                        <td>{{ employee.niNumber }}</td>
+                    </tr>
                 </tbody>
             </table>
             {% else %}
-                There are currently no delivery employees.
+                Could not find employee.
             {% endif %}
 
         </section>
