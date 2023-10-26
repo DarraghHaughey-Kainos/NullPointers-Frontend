@@ -22,6 +22,20 @@ module.exports = function(app: Application) {
         res.render('list-delivery-employees', { employees: data });
     })
 
+    app.get('/deliveryemployees/:id', async (req: Request, res: Response) => {
+        let data: DeliveryEmployee = new DeliveryEmployee;
+
+        try {
+            data = await deliveryEmployeeService.getDeliveryEmployeeById(req.params.id)
+      
+        } catch (e) {
+            console.error(e)
+        }
+
+        res.render('view-delivery-employee', { employee: data} )
+
+    })
+
     app.get('/createdeliveryemployee', async (req: Request, res: Response) => {
 
         res.render('create-new-delivery-employee');
