@@ -72,24 +72,11 @@ module.exports = function(app: Application) {
             // call to service class to get del employee by id
             data = await deliveryEmployeeService.getDeliveryEmployeeById(req.params.id);
         } catch(e){
-            console.error(e);
+            res.locals.errormessage = e.message;
+            return res.render('update-delivery-employee', req.body);
         }
 
         // render view-order page, passing in data returned from api
-        res.render('update-delivery-employee', {deliveryEmployee: data})
+        return res.render('update-delivery-employee', {deliveryEmployee: data})
     })
-
-
-    // // update delivery employee
-    // app.put('/updatedeliveryemployee/{id}', async(req: Request, res: Response) =>{
-
-    //     let data: DeliveryEmployeeUpdateRequest = req.body;
-
-
-
-
-    // })
-
-
-
 }

@@ -13,8 +13,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>{{ deliveryEmployee.firstName + " " + deliveryEmployee.lastName }}</h1>
+                    <h1>Delivery Employee</h1>
                 </div>
             </div>
         </div>
     </header>
+    <main class="container mt-4">
+        <section id="form" class="bd-light-py-5">
+            <div class="container">
+                <p>Update Delivery Employee Details</p>
+                {% if errormessage %}
+                <div class="alert alert-danger" role="alert">
+                    {{ errormessage }}
+                </div>
+                {% endif %}
+                <form>
+                    <div class="form-group">
+                        <label for="name">First name:</label>
+                        <input type="text" id="firstName" value = "{{ deliveryEmployee.firstName }}" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Last name:</label>
+                        <input type="text" id="lastName" value = "{{ deliveryEmployee.lastName }}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Salary:</label>
+                        <input type="text" id="salary" value = "{{ deliveryEmployee.salary }}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Bank Account Number:</label>
+                        <input type="text" id="bankAccountNumber" value = "{{ deliveryEmployee.bankAccountNumber }}" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </section>
+    </main>
