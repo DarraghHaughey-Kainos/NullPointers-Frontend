@@ -22,6 +22,8 @@ module.exports.getDeliveryEmployeeById = async function(id: number): Promise<Del
 
     } catch (e) {
         throw new Error('Could not find employee');
+    }
+}
 
 module.exports.createDeliveryEmployee = async function (deliveryEmployee: DeliveryEmployeeRequest): Promise<Number> {
 
@@ -41,4 +43,17 @@ module.exports.createDeliveryEmployee = async function (deliveryEmployee: Delive
     }catch(e){
         throw new Error("Could not make delivery employee")
     }
+}
+
+module.exports.deleteDeliveryEmployee = async function (id: number) {
+
+   try {
+    const response = await axios.delete('http://localhost:8080/api/employee/delivery/' + id);
+
+    return response.data;
+
+   } catch(e) {
+    throw new Error("Could not delete delivery employee");
+   }
+    
 }
