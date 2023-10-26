@@ -22,6 +22,8 @@ module.exports.getDeliveryEmployeeById = async function(id: number): Promise<Del
 
     } catch (e) {
         throw new Error('Could not find employee');
+    }
+}
 
 module.exports.createDeliveryEmployee = async function (deliveryEmployee: DeliveryEmployeeRequest): Promise<Number> {
 
